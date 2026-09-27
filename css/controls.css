@@ -1,0 +1,61 @@
+/* =========================================================
+   controls.css — Tombol kontrol utama & taskbar musik
+   ========================================================= */
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== Taskbar musik (mengambang di bawah) ===== */
+.music-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+.music-bar__toggle {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.music-bar__toggle.is-playing {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
+
+.music-bar__select {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color-scheme: dark;
+}
+
+.music-bar__volume {
+  width: 90px;
+  accent-color: #00ff88;
+  cursor: pointer;
+}

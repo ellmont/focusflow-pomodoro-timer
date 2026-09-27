@@ -1,0 +1,133 @@
+/* =========================================================
+   base.css — Variabel, reset, tipografi, tombol dasar
+   ========================================================= */
+
+:root {
+  /* Warna utama per mode — aksen neon pada dasar hitam */
+  --color-pomodoro: #00ff88;
+  --color-pomodoro-dark: #00b35e;
+  --color-short: #39ff14;
+  --color-short-dark: #2ab60e;
+  --color-long: #00ffd5;
+  --color-long-dark: #00b395;
+
+  /* Netral — hitam pekat & abu gelap elegan */
+  --color-bg: #050607;
+  --color-surface: #0b0d0f;
+  --color-surface-2: #121518;
+  --color-border: #1e2328;
+  --color-text: #f4fff9;
+  --color-text-muted: #5f6b64;
+
+  /* Glow neon */
+  --glow-sm: 0 0 8px;
+  --glow-md: 0 0 18px;
+
+  /* Lainnya */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 255, 136, 0.06);
+  --font-main: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-mono: "Consolas", "SF Mono", "Courier New", monospace;
+}
+
+/* Reset ringan */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background:
+    radial-gradient(1100px 550px at 50% -10%, rgba(0, 255, 136, 0.07), transparent 60%),
+    radial-gradient(900px 500px at 85% 110%, rgba(0, 255, 213, 0.05), transparent 60%),
+    var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* Tipografi dasar */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ===== Tombol dasar ===== */
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface-2);
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #050607;
+  font-weight: 700;
+  min-width: 130px;
+  box-shadow: var(--glow-sm) rgba(0, 255, 136, 0.45), var(--glow-md) rgba(0, 255, 136, 0.18);
+}
+
+.btn--primary:hover:not(:disabled) {
+  box-shadow: var(--glow-sm) rgba(0, 255, 136, 0.7), var(--glow-md) rgba(0, 255, 136, 0.3);
+}
+
+.btn--secondary {
+  background: var(--color-surface-2);
+  border-color: var(--accent-dark);
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(0, 255, 136, 0.08);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent-dark);
+}
+
+/* Fokus aksesibilitas */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,72 @@
+/* =========================================================
+   timer.css — Lingkaran timer SVG & tampilan waktu
+   ========================================================= */
+
+.timer-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.timer-ring {
+  position: relative;
+  width: min(320px, 80vw);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-ring__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* progres mulai dari atas */
+}
+
+.timer-ring__track,
+.timer-ring__progress {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.timer-ring__track {
+  stroke: var(--color-surface-2);
+}
+
+.timer-ring__progress {
+  stroke: var(--accent);
+  stroke-dasharray: 628;   /* keliling lingkaran r=100 */
+  stroke-dashoffset: 0;
+  transition: stroke 0.3s ease, stroke-dashoffset 0.5s linear;
+  filter: drop-shadow(0 0 6px var(--accent)) drop-shadow(0 0 18px rgba(0, 255, 136, 0.35));
+}
+
+/* Tampilan waktu di tengah lingkaran */
+.timer-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 1;
+}
+
+.timer-display span:first-child {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.55), 0 0 32px rgba(0, 255, 136, 0.25);
+}
+
+.timer-display span:last-child {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}

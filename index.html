@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Timer</title>
+  <meta name="description" content="Aplikasi Pomodoro Timer sederhana untuk meningkatkan fokus dan produktivitas." />
+
+  <!-- CSS terpisah per tanggung jawab -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/timer.css" />
+  <link rel="stylesheet" href="css/controls.css" />
+  <link rel="stylesheet" href="css/settings.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/toast.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- ===== Mode Tabs ===== -->
+    <nav class="mode-tabs" aria-label="Mode timer">
+      <button class="mode-tab is-active" data-mode="pomodoro" type="button">Pomodoro</button>
+      <button class="mode-tab" data-mode="short-break" type="button">Istirahat Pendek</button>
+      <button class="mode-tab" data-mode="long-break" type="button">Istirahat Panjang</button>
+    </nav>
+
+    <!-- ===== Timer ===== -->
+    <section class="timer-card" aria-live="polite">
+      <div class="timer-ring" data-ring="0">
+        <svg class="timer-ring__svg" viewBox="0 0 220 220" aria-hidden="true">
+          <circle class="timer-ring__track" cx="110" cy="110" r="100" />
+          <circle class="timer-ring__progress" cx="110" cy="110" r="100" />
+        </svg>
+        <div class="timer-display">
+          <span id="time-display">25:00</span>
+          <span id="mode-label">Fokus Kerja</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Kontrol ===== -->
+    <section class="controls" aria-label="Kontrol timer">
+      <button id="btn-start" class="btn btn--primary" type="button">Mulai</button>
+      <button id="btn-pause" class="btn btn--secondary" type="button" disabled>Jeda</button>
+      <button id="btn-reset" class="btn btn--ghost" type="button">Reset</button>
+      <button id="btn-skip" class="btn btn--ghost" type="button">Lewati</button>
+    </section>
+
+    <!-- ===== Dots sesi (progress pomodoro hari ini) ===== -->
+    <div class="session-dots" id="session-dots" aria-label="Sesi selesai hari ini">
+      <span class="session-dot" data-dot="1"></span>
+      <span class="session-dot" data-dot="2"></span>
+      <span class="session-dot" data-dot="3"></span>
+      <span class="session-dot" data-dot="4"></span>
+    </div>
+    <p class="completed-count">Sesi selesai: <strong id="completed-count">0</strong></p>
+
+    <!-- ===== Pengaturan ===== -->
+    <section class="settings" aria-label="Pengaturan">
+      <h2 class="settings__title">Pengaturan (menit)</h2>
+      <div class="settings__grid">
+        <div class="setting-field">
+          <label for="input-pomodoro">Pomodoro</label>
+          <input id="input-pomodoro" type="number" min="1" max="90" step="1" value="25" />
+        </div>
+        <div class="setting-field">
+          <label for="input-short">Istirahat Pendek</label>
+          <input id="input-short" type="number" min="1" max="30" step="1" value="5" />
+        </div>
+        <div class="setting-field">
+          <label for="input-long">Istirahat Panjang</label>
+          <input id="input-long" type="number" min="1" max="60" step="1" value="15" />
+        </div>
+        <div class="setting-field">
+          <label for="input-rounds">Rounds (1–8)</label>
+          <input id="input-rounds" type="number" min="1" max="8" step="1" value="4" />
+        </div>
+      </div>
+      <div class="settings__actions">
+        <button id="btn-apply" class="btn btn--secondary" type="button">Terapkan</button>
+        <button id="btn-default" class="btn btn--ghost" type="button">Default</button>
+      </div>
+      <p class="settings__hint">Perubahan durasi diterapkan saat timer di-reset atau lewati.</p>
+    </section>
+  </main>
+
+  <!-- ===== Taskbar Musik ===== -->
+  <div class="music-bar" aria-label="Kontrol musik">
+    <button id="btn-music-toggle" class="music-bar__toggle" type="button" title="Putar/Hentikan musik">🎵 Musik</button>
+    <select id="music-track" class="music-bar__select" title="Pilih musik">
+      <option value="off" selected>Tanpa musik</option>
+      <option value="rain">Hujan</option>
+      <option value="waves">Ombak</option>
+      <option value="forest">Hutan</option>
+      <option value="cafe">Kafe</option>
+    </select>
+    <input id="music-volume" class="music-bar__volume" type="range" min="0" max="100" value="50" title="Volume" />
+  </div>
+
+  <!-- JS terpisah per tanggung jawab -->
+  <script src="js/audio.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

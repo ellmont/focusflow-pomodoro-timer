@@ -1,0 +1,26 @@
+/* =========================================================
+   toast.css — Notifikasi toast sederhana
+   ========================================================= */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 4.5rem;
+  transform: translate(-50%, 10px);
+  background: var(--color-surface-2);
+  border: 1px solid var(--accent-dark);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.25);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

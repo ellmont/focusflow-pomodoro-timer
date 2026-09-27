@@ -1,0 +1,47 @@
+/* =========================================================
+   responsive.css — Penyesuaian untuk layar kecil
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .app {
+    padding: 1.25rem 0.75rem 6.5rem;
+    gap: 1.25rem;
+  }
+
+  /* Tabs jadi muat penuh */
+  .mode-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mode-tab {
+    flex: 1;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* Grid pengaturan jadi 2 kolom */
+  .settings__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tombol kontrol menyusut */
+  .controls .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .controls .btn--primary {
+    min-width: 100px;
+  }
+
+  /* Taskbar musik lebih ramping */
+  .music-bar {
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .music-bar__volume {
+    width: 64px;
+  }
+}
